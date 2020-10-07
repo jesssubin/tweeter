@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+   background-color: #ffffff;
+  background-image: url(http://www.transparenttextures.com/patterns/cubes.png);
+}
+
+.avatar  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.name  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
