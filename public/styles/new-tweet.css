@@ -10,6 +10,14 @@
   color: #545149;
 }
 
+.error-msg {
+  display: flex;
+  justify-content: center;
+  border: 3px solid red;
+  color: red;
+  padding: 2px;
+}
+
 .tweet-footer {
   display: flex;
   justify-content: space-between;
