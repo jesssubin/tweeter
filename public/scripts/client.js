@@ -42,8 +42,10 @@ $(document).ready(function () {
             </div>
             <p class="userid">${tweetData.user.handle}</p>
           </div>
-          <p class="tweet-content">${tweetData.content.text}</p>
-          <p class="bottom-border"></p>
+          <div class="tweet-txt">
+            <p class="tweet-content">${tweetData.content.text}</p>
+            <p class="bottom-border"></p>
+          </div>
           <footer class="footer" >
             <p class="date-update"> 10 days ago</p>
             <div class="icons">
@@ -57,13 +59,15 @@ $(document).ready(function () {
   }
 
   const renderTweets = function (tweets) {
+    const $element; 
     // loops through tweets
     for (const tweet of tweets) {
       // calls createTweetElement for each tweet
-      const $element = createTweetElement(tweet); 
+      $element = createTweetElement(tweet); 
       // takes return value and appends it to the tweets container
-      $('#tweets-section').append($element);
+      
     }
+    $('#tweets-section').append($element);
   }
 
   renderTweets(data); 
