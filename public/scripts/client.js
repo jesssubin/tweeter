@@ -10,13 +10,13 @@ $(document).ready(function () {
   const data = [
     {
       "user": {
-        "name": "Newton",
+        "name": "Einstein",
         "avatars": "https://i.imgur.com/73hZDYK.png"
         ,
-        "handle": "@SirIsaac"
+        "handle": "@Lightbulb"
       },
       "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
+        "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe."
       },
       "created_at": 1461116232227
     },
@@ -59,15 +59,15 @@ $(document).ready(function () {
   }
 
   const renderTweets = function (tweets) {
-    const $element; 
+    let $element; 
     // loops through tweets
     for (const tweet of tweets) {
       // calls createTweetElement for each tweet
       $element = createTweetElement(tweet); 
       // takes return value and appends it to the tweets container
-      
+      $('#tweets-section').append($element);
     }
-    $('#tweets-section').append($element);
+  
   }
 
   renderTweets(data); 
