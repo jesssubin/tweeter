@@ -12,6 +12,7 @@
 
 .error-msg {
   display: flex;
+  visibility: hidden;
   justify-content: center;
   border: 3px solid red;
   color: red;

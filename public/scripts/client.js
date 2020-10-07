@@ -60,17 +60,24 @@ const escape = function (str) {
       const $form = $(this); 
       const text = $("#tweet-text").val(); 
       console.log("text: ", text); 
-      if(!text || text.length > 140 || !text.length) {
-        alert("Invalid Tweet"); 
-        return; 
-      }
-      console.log('Button clicked, performing ajax call...');
-      console.log($(this).serialize()); 
-      $.ajax('/tweets', { method: 'POST', data: $form.serialize()})
-        .then(function (data) {
-          $("#tweet-text").val(""); 
-          loadTweets(); 
+      if( text.length > 140) {
+        $(".error-msg").css("visibility", "visible");
+        $(".error-msg").slideDown("slow", function () {
+        $(".error-msg").text("Too long. Please respect our arbirary limit of 140 characters.");
         });
+      } else if (!text.length) {
+        $(".error-msg").css("visibility", "visible");
+        $(".error-msg").slideDown("slow", function () {
+        $(".error-msg").text("This tweet is empty. Please type in your tweet.");
+      });
+      } else {
+        $(".error-msg").css("visibility", "hidden");
+        $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
+          .then(function (data) {
+            $("#tweet-text").val("");
+            loadTweets();
+          });
+      }
     };
   
   const loadTweets = function () {

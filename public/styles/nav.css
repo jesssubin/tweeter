@@ -25,7 +25,7 @@ span {
   font-style: normal;
 }
 
-i {
+.fa-angle-double-down {
   color: red;
   animation: updown 2s ease infinite;
 }
