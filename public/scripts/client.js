@@ -61,17 +61,15 @@ const escape = function (str) {
       const text = $("#tweet-text").val(); 
       console.log("text: ", text); 
       if( text.length > 140) {
-        $(".error-msg").css("visibility", "visible");
         $(".error-msg").slideDown("slow", function () {
-        $(".error-msg").text("Too long. Please respect our arbirary limit of 140 characters.");
+          $(".error-msg span").text("This tweet is too long.\nPlease respect our arbirary limit of 140 characters.");
         });
       } else if (!text.length) {
-        $(".error-msg").css("visibility", "visible");
         $(".error-msg").slideDown("slow", function () {
-        $(".error-msg").text("This tweet is empty. Please type in your tweet.");
+          $(".error-msg span").text("This tweet is empty.\nPlease type in your tweet.");
       });
       } else {
-        $(".error-msg").css("visibility", "hidden");
+        $(".error-msg").slideUp(); 
         $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
           .then(function (data) {
             $("#tweet-text").val("");

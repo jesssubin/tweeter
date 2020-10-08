@@ -27,9 +27,11 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>Tweeter</span>
+      <button class="new-tweet-button">
       <div class="write-new-tweet">
       <div><strong>Write </strong> a new tweet</div>
       <i class="fa fa-angle-double-down"></i>
+      </button>
       </div>
     </nav>
     <header>
@@ -44,7 +46,13 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <p class="error-msg"></p>
+        <div class="error-msg">
+          <i class="fa fa-exclamation-triangle"></i>
+          <span>
+            Error message!
+          </span>
+          <i class="fa fa-exclamation-triangle"></i>
+        </div>
         <form id="tweet-form" method="POST" action="/tweets">
           <textarea name="text" placeholder="What are you humming about?" id="tweet-text"></textarea>
           <div class="tweet-footer">

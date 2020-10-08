@@ -11,12 +11,18 @@
 }
 
 .error-msg {
-  display: flex;
-  visibility: hidden;
+  display: none;
+  text-align: center;
   justify-content: center;
   border: 3px solid red;
   color: red;
-  padding: 2px;
+  margin: 2em;
+}
+
+.error-msg span {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 1em;
+  font-weight: bolder;
 }
 
 .tweet-footer {
@@ -48,4 +54,5 @@ button {
   border: none; 
   border-bottom: 4px solid #545149;
   background-color: #f4f1ec;
+  margin-top: 2em;
 }
