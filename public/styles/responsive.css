@@ -17,6 +17,8 @@
     width: 35%;
     justify-content: center;
     margin: 4%;
+    border-radius: 60%;
+    position: fixed;
   }
 
   .container {
@@ -24,6 +26,7 @@
     flex-grow: 1.5;
     justify-content: center;
     margin: 4%;
+    padding-left: 40%;
   }
 }
 
