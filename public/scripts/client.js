@@ -6,7 +6,7 @@
 
 $(document).ready(function () {
   $('#tweet-form').submit(submitHandler);
-
+  tweetSubmitHandler(); 
   loadTweets(); 
 });
 
@@ -78,6 +78,17 @@ const escape = function (str) {
       }
     };
   
+    const tweetSubmitHandler = function (event) {
+      $(".new-tweet-button").on("click", function () {
+        if ($("#tweet-form").is(':visible')) {
+          $("#tweet-form").slideUp("slow")
+        } else {
+          $("#tweet-form").slideDown("slow")
+        }
+      });
+    }; 
+
+
   const loadTweets = function () {
       $.ajax('/tweets', { method: 'GET' })
         .then(function (data) {

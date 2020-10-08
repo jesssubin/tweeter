@@ -10,10 +10,12 @@
    top: 0;
    left: 0; 
    width: 100%;
+   z-index:1;
    
  }
 
 .new-tweet-button {
+  font-family: "Source Sans Pro", sans-serif;
   background: none;
   border: none;
   margin: 0;
@@ -21,7 +23,7 @@
 }
 
 .new-tweet-button:hover {
-  color: #ff61be
+  color: #ffd875
 }
 
 

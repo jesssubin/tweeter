@@ -25,6 +25,10 @@
   font-weight: bolder;
 }
 
+#tweet-form {
+  display: none;
+}
+
 .tweet-footer {
   display: flex;
   justify-content: space-between;
@@ -54,5 +58,4 @@ button {
   border: none; 
   border-bottom: 4px solid #545149;
   background-color: #f4f1ec;
-  margin-top: 2em;
 }

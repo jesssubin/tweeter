@@ -8,14 +8,14 @@
   border: 4px solid #545149; 
   width: 100%;
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
   padding: 3%; 
 }
 
 .tweet-container:hover {
   border: 4px solid #545149; 
   padding: 3%; 
-  box-shadow: 10px 10px rgb(131, 131, 189);
+  box-shadow: 10px 10px rgb(232, 159, 179);
 }
 
 .user-info {
@@ -101,7 +101,7 @@
 }
 
 .icons i{
-  color: rgb(131, 131, 189);
+  color: rgb(232, 159, 179);
   opacity: 60%;
   margin-top: 5px;
 }
