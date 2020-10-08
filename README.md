@@ -15,3 +15,6 @@ It is built upon with a goal to practice HTML, CSS, JS, jQuery and AJAX front-en
 
 - Express
 - Node 5.10.x or above
+
+## Final Product
+![public/images/Tweeter.gif](https://github.com/jesssubin/tweeter/blob/master/public/images/Tweeter.gif)
