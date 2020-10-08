@@ -4,21 +4,21 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
+$(document).ready(function() {
   $('#tweet-form').submit(submitHandler);
-  tweetSubmitHandler(); 
-  loadTweets(); 
+  tweetSubmitHandler();
+  loadTweets();
 });
 
-//prevents cross-site scripting 
-const escape = function (str) {
+//prevents cross-site scripting
+const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}; 
+};
 
-  const createTweetElement = function (tweetData) {
-    const $tweet = $(`<article class="tweet-container">
+const createTweetElement = function(tweetData) {
+  const $tweet = $(`<article class="tweet-container">
           <div class="user-info">
             <div class="unhidden">
             <img class="usericon" src="${tweetData.user.avatars}"/>
@@ -39,62 +39,62 @@ const escape = function (str) {
             </div>
           </footer>
         </article> `);
-    return $tweet;
-  };
+  return $tweet;
+};
 
-  const renderTweets = function (tweets) {
-    let $element; 
-    const $container = $('#tweets-section'); 
-    $container.html(""); 
-    // loops through tweets
-    for (const tweet of tweets) {
-      // calls createTweetElement for each tweet
-      $element = createTweetElement(tweet); 
-      // takes return value and appends it to the tweets container
-      $container.prepend($element);
-    }
-  };
+const renderTweets = function(tweets) {
+  let $element;
+  const $container = $('#tweets-section');
+  $container.html("");
+  // loops through tweets
+  for (const tweet of tweets) {
+    // calls createTweetElement for each tweet
+    $element = createTweetElement(tweet);
+    // takes return value and appends it to the tweets container
+    $container.prepend($element);
+  }
+};
 
-    const submitHandler = function (event) {
-      event.preventDefault();
-      const $form = $(this); 
-      const text = $("#tweet-text").val(); 
-      console.log("text: ", text); 
-      if( text.length > 140) {
-        $(".error-msg").slideDown("slow", function () {
-          $(".error-msg span").text("This tweet is too long.\nPlease respect our arbirary limit of 140 characters.");
-        });
-      } else if (!text.length) {
-        $(".error-msg").slideDown("slow", function () {
-          $(".error-msg span").text("This tweet is empty.\nPlease type in your tweet.");
+const submitHandler = function(event) {
+  event.preventDefault();
+  const $form = $(this);
+  const text = $("#tweet-text").val();
+  console.log("text: ", text);
+  if (text.length > 140) {
+    $(".error-msg").slideDown("slow", function() {
+      $(".error-msg span").text("This tweet is too long.\nPlease respect our arbirary limit of 140 characters.");
+    });
+  } else if (!text.length) {
+    $(".error-msg").slideDown("slow", function() {
+      $(".error-msg span").text("This tweet is empty.\nPlease type in your tweet.");
+    });
+  } else {
+    $(".error-msg").slideUp();
+    $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
+      .then(function(data) {
+        $("#tweet-text").val("");
+        loadTweets();
       });
-      } else {
-        $(".error-msg").slideUp(); 
-        $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
-          .then(function (data) {
-            $("#tweet-text").val("");
-            loadTweets();
-          });
-      }
-    };
+  }
+};
   
-    const tweetSubmitHandler = function (event) {
-      $(".new-tweet-button").on("click", function () {
-        if ($("#tweet-form").is(':visible')) {
-          $("#tweet-form").slideUp("slow")
-        } else {
-          $("#tweet-form").slideDown("slow")
-        }
-      });
-    }; 
+const tweetSubmitHandler = function() {
+  $(".new-tweet-button").on("click", function() {
+    if ($("#tweet-form").is(':visible')) {
+      $("#tweet-form").slideUp("slow");
+    } else {
+      $("#tweet-form").slideDown("slow");
+    }
+  });
+};
 
 
-  const loadTweets = function () {
-      $.ajax('/tweets', { method: 'GET' })
-        .then(function (data) {
-          renderTweets(data); 
-        });
-    };
+const loadTweets = function() {
+  $.ajax('/tweets', { method: 'GET' })
+    .then(function(data) {
+      renderTweets(data);
+    });
+};
   
     
     
