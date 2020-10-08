@@ -62,11 +62,11 @@ const submitHandler = function(event) {
   console.log("text: ", text);
   if (text.length > 140) {
     $(".error-msg").slideDown("slow", function() {
-      $(".error-msg span").text("This tweet is too long.\nPlease respect our arbirary limit of 140 characters.");
+      $(".error-msg span").html("This tweet is too long.<br/>Please respect our arbirary limit of 140 characters.");
     });
   } else if (!text.length) {
     $(".error-msg").slideDown("slow", function() {
-      $(".error-msg span").text("This tweet is empty.\nPlease type in your tweet.");
+      $(".error-msg span").html("This tweet is empty.<br/>Please type in your tweet.");
     });
   } else {
     $(".error-msg").slideUp();
