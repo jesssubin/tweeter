@@ -75,6 +75,7 @@
 .tweet-content {
   font-size: large;
   font-weight: bolder;
+  word-break: break-all; 
 }
 
 .bottom-border {

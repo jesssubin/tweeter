@@ -70,6 +70,7 @@ const submitHandler = function(event) {
     });
   } else {
     $(".error-msg").slideUp();
+    $(".counter").html("140"); 
     $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
       .then(function(data) {
         $("#tweet-text").val("");

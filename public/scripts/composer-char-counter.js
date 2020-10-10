@@ -12,3 +12,4 @@ $(document).on("input", "textarea", function () {
     counter.css("color", "#545149"); 
   }
 })
+
